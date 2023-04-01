@@ -1,0 +1,50 @@
+﻿<Window x:Class="pr30.spisoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr30"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded_1"
+        Title="spisoc" Height="450" Width="800">
+    <Grid
+         x:Name="MaterialList">
+            <ListView Margin="0,68,0,24" SelectionChanged="ListView_SelectionChanged">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="150"
+                           Width="150"
+                           Source="{Binding Image}"/>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                         <Label Content="{Binding MateryalType.Title}"/>
+                         <Label Content=" | "/>
+                         <Label Content="{Binding Title}"/>
+                    </StackPanel>
+                         <Label Content="{Binding MinCount}" ContentStringFormat="Минимальное количество на складе: {0}"/>
+                         <Label Content="{Binding Supplier}" ContentStringFormat="Поставщики: {0}"/>
+                     </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="22,6,0,0" VerticalAlignment="Top" Height="35" Width="95" FontWeight="Bold"/>
+        <Button Content="Удалить" HorizontalAlignment="Center" Margin="0,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.559,0.627" Height="35" Width="95" FontWeight="Bold"/>
+        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="688,6,0,0" VerticalAlignment="Top" Height="35" Width="95" FontWeight="Bold"/>
+        <DataGrid Name="SP" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,44,0,0" SelectionChanged="SP_SelectionChanged" >
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id товара"  Width="*"  Binding="{Binding id_товара}"/>
+                <DataGridTextColumn Header="Артикул" Width="*" Binding="{Binding Артикул}"/>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Наименование}"/>
+                <DataGridTextColumn Header="Стоимость" Width="*" Binding="{Binding Стоимость}"/>
+                <DataGridTextColumn Header="id категория" Width="*" Binding="{Binding id_категория}"/>
+                <DataGridTemplateColumn Header="Изображение" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+    
+</Window>
+
+    

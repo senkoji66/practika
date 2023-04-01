@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище bigModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Заказ">
+    <Key>
+      <PropertyRef Name="id_заказа" />
+    </Key>
+    <Property Name="id_заказа" Type="float" Nullable="false" />
+    <Property Name="Дата заказа" Type="datetime" />
+    <Property Name="Дата доставки" Type="datetime" />
+    <Property Name="Пункт выдачи" Type="float" />
+    <Property Name="id_покупателя" Type="float" Nullable="false" />
+    <Property Name="Код для получения" Type="float" />
+    <Property Name="Статус заказа" Type="float" />
+  </EntityType>
+  <EntityType Name="Категории">
+    <Key>
+      <PropertyRef Name="id_категории" />
+    </Key>
+    <Property Name="id_категории" Type="float" Nullable="false" />
+    <Property Name="Категория товара" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Наименование">
+    <Key>
+      <PropertyRef Name="id_наименования" />
+    </Key>
+    <Property Name="id_наименования" Type="float" Nullable="false" />
+    <Property Name="product" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Пользователи$">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="float" Nullable="false" />
+    <Property Name="фио" Type="nvarchar" MaxLength="255" />
+    <Property Name="Login" Type="nvarchar" MaxLength="255" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="id_role" Type="float" />
+  </EntityType>
+  <EntityType Name="Пункт_выдачи">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="float" Nullable="false" />
+    <Property Name="Индекс" Type="float" />
+    <Property Name="Город" Type="nvarchar" MaxLength="255" />
+    <Property Name="Улица" Type="nvarchar" MaxLength="255" />
+    <Property Name="Дом" Type="float" />
+  </EntityType>
+  <EntityType Name="Роли$">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="float" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Товары">
+    <Key>
+      <PropertyRef Name="id_товара" />
+    </Key>
+    <Property Name="id_товара" Type="float" Nullable="false" />
+    <Property Name="Артикул" Type="nvarchar" MaxLength="255" />
+    <Property Name="id_наименования" Type="float" />
+    <Property Name="Единица измерения   " Type="nvarchar" MaxLength="255" />
+    <Property Name="Стоимость" Type="float" />
+    <Property Name="Размер максимально возможной скидки" Type="float" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="255" />
+    <Property Name="Поставщик" Type="nvarchar" MaxLength="255" />
+    <Property Name="id_категории" Type="float" />
+    <Property Name="Действующая скидка" Type="float" />
+    <Property Name="Кол-во на складе" Type="float" />
+    <Property Name="Описание" Type="nvarchar" MaxLength="255" />
+    <Property Name="Изображение" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="Хранилище bigModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказ" EntityType="Self.Заказ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Категории" EntityType="Self.Категории" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Наименование" EntityType="Self.Наименование" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пользователи$" EntityType="Self.Пользователи$" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пункт_выдачи" EntityType="Self.Пункт_выдачи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Роли$" EntityType="Self.Роли$" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Товары" EntityType="Self.Товары" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
